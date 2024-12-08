@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun, Cinta!</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff77b4, #ff99cc);
+      font-family: 'Comic Sans MS', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ffccff;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #ffd1e6;
+      animation: fadeInUp 3s ease-out;
+    }
+
+    .heart {
+      color: #ff3366;
+      font-size: 60px;
+      margin: 30px 0;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    .button {
+      background-color: #ff6699;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      animation: fadeInUp 4s ease-out;
+    }
+
+    .button:hover {
+      background-color: #ff3366;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    /* Floating Heart Animation */
+    .floating-heart {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      transform: translateX(-50%);
+      animation: floatHeart 4s infinite ease-in-out;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) translateX(-50%) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-30px) translateX(-50%) rotate(15deg);
+      }
+      100% {
+        transform: translateY(0) translateX(-50%) rotate(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Selamat Ulang Tahun, Cinta!</h1>
+    <p>Cinta ini bukan sekadar kata, tapi kenyataan yang ingin aku jalani selamanya denganmu</p>
+    <div class="heart"></div>
+    <button class="button" id="makeWishBtn">Buat Keinginan!</button>
+  </div>
+
+  <div class="floating-heart">
+    <div class="heart"></div>
+  </div>
+
+  <!-- Audio for Happy Birthday -->
+  <audio id="happyBirthdayAudio" src="happy.mp3" autoplay preload="auto" muted></audio>
+
+  <script>
+    // Unmute the audio after the page is loaded to avoid autoplay being blocked
+    window.onload = function() {
+      var audio = document.getElementById('happyBirthdayAudio');
+      audio.muted = false; // Unmute the audio after page load
+      audio.play(); // Play the audio
+    };
+
+    // Play the Happy Birthday song when the button is clicked
+    document.getElementById("makeWishBtn").addEventListener("click", function() {
+      var audio = document.getElementById('happyBirthdayAudio');
+      audio.play();
+      alert("Semoga semua impianmu tercapai, dan kita terus bersama selamanya! ");
+    });
+  </script>
+</body>
+</html>
