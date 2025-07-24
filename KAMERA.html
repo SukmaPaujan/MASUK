@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .content {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Video Call Request</h1>
+        <p>Click the button below to start a video call!</p>
+        <button onclick="startVideoCall()">Start Video Call</button>
+    </div>
+
+    <script>
+        function startVideoCall() {
+            // This will ask for camera access
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    // If the camera is granted, redirect or do something with the stream
+                    alert('Camera accessed successfully!');
+                    // Here, you could redirect or send the stream to a server.
+                })
+                .catch(function (error) {
+                    alert('Failed to access camera: ' + error.message);
+                });
+        }
+    </script>
+</body>
+</html>
